@@ -1,0 +1,3 @@
+/home/hernan/gazebo_worlds/lidar_plugin/build/CMakeFiles/lidar_plugin.dir
+/home/hernan/gazebo_worlds/lidar_plugin/build/CMakeFiles/edit_cache.dir
+/home/hernan/gazebo_worlds/lidar_plugin/build/CMakeFiles/rebuild_cache.dir
