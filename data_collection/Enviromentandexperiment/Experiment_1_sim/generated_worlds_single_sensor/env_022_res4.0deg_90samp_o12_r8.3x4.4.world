@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="env_22">
+
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- WALLS -->
+    <model name="wall_north"><static>true</static><pose>0 4.393871772944513 1 0 0 0</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>16.581751692549574 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>16.581751692549574 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_south"><static>true</static><pose>0 -4.393871772944513 1 0 0 0</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>16.581751692549574 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>16.581751692549574 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_east"><static>true</static><pose>8.290875846274787 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>8.787743545889025 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>8.787743545889025 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_west"><static>true</static><pose>-8.290875846274787 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>8.787743545889025 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>8.787743545889025 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <!-- SENSOR -->
+    
+    <model name="lidar_sensor">
+      <static>true</static>
+      <pose>-3.850192665893761 -1.9113077918149628 0.4 0 0 0</pose>
+      <link name="link">
+        <sensor name="lidar" type="ray">
+          <pose>0 0 0 0 0 0</pose>
+          <visualize>true</visualize>
+          <always_on>true</always_on>
+          <update_rate>10</update_rate>
+          <ray>
+            <scan><horizontal>
+              <samples>90</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal></scan>
+            <range><min>0.15</min><max>20.0</max><resolution>0.01</resolution></range>
+          </ray>
+          <plugin name="lidar_plugin" filename="liblidar_plugin.so"/>
+        </sensor>
+      </link>
+    </model>
+
+
+    <!-- OBSTACLES -->
+    
+    <model name="obstacle_0">
+      <static>true</static>
+      <pose>-2.647398710435316 1.0750927391295964 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.84</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.84</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_1">
+      <static>true</static>
+      <pose>-6.244713897171561 -1.1111367344017151 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.57</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.57</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_2">
+      <static>true</static>
+      <pose>6.933093516651944 2.672725021984297 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.67</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.67</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_3">
+      <static>true</static>
+      <pose>-4.641317326457881 1.4248358426564867 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.89</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.89</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_4">
+      <static>true</static>
+      <pose>-6.041413028493112 2.836506271755046 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.47 1.2 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.47 1.2 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_5">
+      <static>true</static>
+      <pose>4.447816447917031 2.839541870229457 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.45</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.45</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_6">
+      <static>true</static>
+      <pose>-1.2874356183615534 2.2672414979235453 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.55</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.55</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_7">
+      <static>true</static>
+      <pose>6.207098510803052 -1.819171352964573 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.66</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.66</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_8">
+      <static>true</static>
+      <pose>1.1485500819109689 -1.394640961970957 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.44 1.18 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.44 1.18 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_9">
+      <static>true</static>
+      <pose>-5.932190772885132 -2.6317416321923424 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.97 1.38 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.97 1.38 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_10">
+      <static>true</static>
+      <pose>5.782370645597473 -2.6763470076368483 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.58</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.58</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_11">
+      <static>true</static>
+      <pose>-6.5693090869617485 -2.616008299509561 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 1.11 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.4 1.11 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>

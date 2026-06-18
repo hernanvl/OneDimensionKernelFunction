@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="env_79">
+
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- WALLS -->
+    <model name="wall_north"><static>true</static><pose>0 7.12782856341291 1 0 0 0</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>10.50123594116976 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>10.50123594116976 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_south"><static>true</static><pose>0 -7.12782856341291 1 0 0 0</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>10.50123594116976 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>10.50123594116976 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_east"><static>true</static><pose>5.25061797058488 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>14.25565712682582 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>14.25565712682582 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_west"><static>true</static><pose>-5.25061797058488 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="collision">
+        <geometry><box><size>14.25565712682582 0.2 2</size></box></geometry>
+      </collision><visual name="visual">
+        <geometry><box><size>14.25565712682582 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <!-- SENSOR -->
+    
+    <model name="lidar_sensor">
+      <static>true</static>
+      <pose>-3.5393049813367483 -3.14480393170395 0.4 0 0 0</pose>
+      <link name="link">
+        <sensor name="lidar" type="ray">
+          <pose>0 0 0 0 0 0</pose>
+          <visualize>true</visualize>
+          <always_on>true</always_on>
+          <update_rate>10</update_rate>
+          <ray>
+            <scan><horizontal>
+              <samples>240</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal></scan>
+            <range><min>0.15</min><max>20.0</max><resolution>0.01</resolution></range>
+          </ray>
+          <plugin name="lidar_plugin" filename="liblidar_plugin.so"/>
+        </sensor>
+      </link>
+    </model>
+
+
+    <!-- OBSTACLES -->
+    
+    <model name="obstacle_0">
+      <static>true</static>
+      <pose>1.6466915097653727 -3.834086376322444 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.36 0.51 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.36 0.51 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_1">
+      <static>true</static>
+      <pose>-0.12013323254684494 2.666482373739928 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.33</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.33</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_2">
+      <static>true</static>
+      <pose>1.0858618087052214 -4.069214280085323 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.38</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.38</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_3">
+      <static>true</static>
+      <pose>-1.5528769378269822 0.6285831764575418 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.62</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.62</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_4">
+      <static>true</static>
+      <pose>3.2849455007453887 -4.541785725099343 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.15 1.5 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.15 1.5 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obstacle_5">
+      <static>true</static>
+      <pose>-3.039726272521352 -6.146303993504156 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.33 1.29 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.33 1.29 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>
