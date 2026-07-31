@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="movement_env_2">
+
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- WALLS -->
+    <model name="wall_north"><static>true</static><pose>0 3.0 1 0 0 0</pose>
+      <link name="link"><collision name="col">
+        <geometry><box><size>10.0 0.2 2</size></box></geometry>
+      </collision><visual name="vis">
+        <geometry><box><size>10.0 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_south"><static>true</static><pose>0 -3.0 1 0 0 0</pose>
+      <link name="link"><collision name="col">
+        <geometry><box><size>10.0 0.2 2</size></box></geometry>
+      </collision><visual name="vis">
+        <geometry><box><size>10.0 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_east"><static>true</static><pose>5.0 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="col">
+        <geometry><box><size>6.0 0.2 2</size></box></geometry>
+      </collision><visual name="vis">
+        <geometry><box><size>6.0 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <model name="wall_west"><static>true</static><pose>-5.0 0 1 0 0 1.57</pose>
+      <link name="link"><collision name="col">
+        <geometry><box><size>6.0 0.2 2</size></box></geometry>
+      </collision><visual name="vis">
+        <geometry><box><size>6.0 0.2 2</size></box></geometry>
+      </visual></link>
+    </model>
+
+    <!-- SENSOR -->
+    
+    <model name="lidar_sensor">
+      <static>true</static>
+      <pose>-3.3333333333333335 0.0 0.4 0 0 0.0</pose>
+      <link name="link">
+        <sensor name="lidar" type="ray">
+          <pose>0 0 0 0 0 0</pose>
+          <visualize>true</visualize>
+          <always_on>true</always_on>
+          <update_rate>10</update_rate>
+          <ray>
+            <scan><horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal></scan>
+            <range><min>0.15</min><max>20.0</max><resolution>0.01</resolution></range>
+          </ray>
+          <plugin name="lidar_plugin" filename="liblidar_plugin.so"/>
+        </sensor>
+      </link>
+    </model>
+
+
+    <!-- OBSTACLES -->
+    
+    <model name="obs_0">
+      <static>true</static>
+      <pose>-1.0 0.8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>1.0 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>1.0 0.6 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obs_1">
+      <static>true</static>
+      <pose>2.5 -1.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><cylinder><radius>0.5</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.5</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obs_2">
+      <static>true</static>
+      <pose>3.5 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>0.6 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>0.6 0.6 1.0</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="obs_3">
+      <static>true</static>
+      <pose>-3.5 -2.0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><cylinder><radius>0.7</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.7</radius><length>1.0</length></cylinder></geometry>
+        </visual>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>
